@@ -1,11 +1,10 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, send_from_directory
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 
 from streetlevel import streetview
 import os
 import json
-import time
 
 app = Flask(__name__)
 limiter = Limiter(
@@ -15,7 +14,7 @@ limiter = Limiter(
 )
 
 workdir = os.path.dirname(os.path.abspath(__file__))
-panos_dir = os.path.join(workdir, 'static/panos')
+panos_dir = os.path.join(workdir, 'panos')
 # create panos directory if it doesn't exist
 if not os.path.exists(panos_dir):
     os.makedirs(panos_dir)
@@ -92,3 +91,14 @@ def view(pano_id):
     server_url = request.host_url
     pano_url = server_url + 'static/panos/' + pano_id + '.jpg'
     return render_template('viewpano.html', pano_url=pano_url)
+
+@app.route("/static/panos/<pano_id>.jpg")
+def pano(pano_id):
+    return send_from_directory(panos_dir, pano_id + '.jpg')
+
+@app.route("/static/panos/panos.json")
+def panos_json():
+    return send_from_directory(panos_dir, 'panos.json')
+
+if __name__ == '__main__':
+    app.run(debug=True)
