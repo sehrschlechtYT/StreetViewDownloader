@@ -49,7 +49,6 @@ def download():
     pano = streetview.find_panorama(
         lat = lat,
         lon = lon,
-        locale='de',
     )
     if pano is None:
         print(f"Panorama not found for lat={lat} and lon={lon}")
