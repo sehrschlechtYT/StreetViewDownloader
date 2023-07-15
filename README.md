@@ -27,3 +27,7 @@ Press [Tab] to toggle the map.
 - [Flask](https://flask.palletsprojects.com) for the web server
 - [Flask-limiter](https://flask-limiter.readthedocs.io) for rate limiting
 - [Streetlevel](https://github.com/sk-zk/streetlevel) for downloading the panoramas
+
+### Public instance
+
+There (probably) won't be a public instance of this app. You can run it yourself using the instructions above. The reason for this is that the panoramas take up a lot of disk space (3-4 mb per panorama) and the google street view api may block the ip address if too many requests are made.
