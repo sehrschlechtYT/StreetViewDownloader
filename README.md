@@ -19,7 +19,9 @@ The following commands are for Windows and Linux. The program was not tested on 
 3. Install the dependencies using `pip install -r requirements.txt`
 4. Execute the command `flask run` to start the server
 5. Visit `localhost:5000` in your browser
-6. To download a panorama, just click on a blue line or dot on the map. The panorama will be downloaded and then shown in the browser automatically. If you want to download multiple panoramas in the background without having them displayed in the browser (the browser lags every time a panorama is loaded), you can hold shift while clicking on the map.
+6. 
+To download a panorama, just click on a blue line or dot on the map. The panorama will be downloaded and then shown in the browser automatically. If you want to download multiple panoramas in the background without having them displayed in the browser (the browser lags every time a panorama is loaded), you can hold shift while clicking on the map.  
+Press [Tab] to toggle the map.
 
 ### Libraries
 - [Flask](https://flask.palletsprojects.com) for the web server
