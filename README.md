@@ -1,8 +1,8 @@
 # StreetViewDownloader
 
 Web app that allows you to download and view google street view panoramas
+![image](https://github.com/sehrschlechtYT/StreetViewDownloader/assets/66412605/05bef95f-f881-4ac6-8ae0-46ad55eece42)
 
-<video src="https://i.imgur.com/xfgbXR7.mp4" width=400></video>
 
 ### Reason for creation
 According to an [announcement by google](https://blog.google/intl/de-de/produkte/suchen-entdecken/google-street-view-aktualisierung-deutschland/), they will be updating their street view images in Germany in mid July 2023. However, the old images from 2008/2009 will be deleted. I wanted to make it possible to download some panoramas before they are gone forever.
