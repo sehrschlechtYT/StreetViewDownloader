@@ -5,10 +5,9 @@ $(document).ready(function () {
         async: false
     }).responseJSON;
     console.log(panosJson);
-    const firstPano = panosJson[0].id;
     var viewer = new PhotoSphereViewer.Viewer({
         container: document.querySelector('#panorama'),
-        panorama: '/static/panos/' + firstPano + '.jpg',
+        panorama: 'https://i.imgur.com/W9Ruo6o.jpeg',
         minFov: 15,
         plugins: [
             [PhotoSphereViewer.CompassPlugin, {
