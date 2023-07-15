@@ -1,6 +1,7 @@
 # StreetViewDownloader
 
-Web app that allows you to download and view google street view panoramas
+Web app that allows you to download and view google street view panoramas  
+<br>
 ![image](https://github.com/sehrschlechtYT/StreetViewDownloader/assets/66412605/05bef95f-f881-4ac6-8ae0-46ad55eece42)
 
 
@@ -12,11 +13,13 @@ According to an [announcement by google](https://blog.google/intl/de-de/produkte
 #### Run using the terminal
 
 Prequisites: Python 3
-
+The following commands are for Windows and Linux. The program was not tested on MacOS.
 1. Clone the repository using `git clone https://github.com/sehrschlechtYT/StreetViewDownloader.git`
 2. Go into the directory using `cd StreetViewDownloader`
 3. Install the dependencies using `pip install -r requirements.txt`
 4. Execute the command `flask run` to start the server
+5. Visit `localhost:5000` in your browser
+6. To download a panorama, just click on a blue line or dot on the map. The panorama will be downloaded and then shown in the browser automatically. If you want to download multiple panoramas in the background without having them displayed in the browser (the browser lags every time a panorama is loaded), you can hold shift while clicking on the map.
 
 ### Libraries
 - [Flask](https://flask.palletsprojects.com) for the web server
