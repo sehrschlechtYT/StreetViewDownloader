@@ -19,5 +19,6 @@ Prequisites: Python 3
 4. Execute the command `flask run` to start the server
 
 ### Libraries
-- [Flask](https://flask.palletsprojects.com) for the web server 
+- [Flask](https://flask.palletsprojects.com) for the web server
+- [Flask-limiter](https://flask-limiter.readthedocs.io) for rate limiting
 - [Streetlevel](https://github.com/sk-zk/streetlevel) for downloading the panoramas
