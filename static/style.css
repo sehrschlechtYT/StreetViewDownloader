@@ -1,0 +1,43 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#map:not(.map-hidden) {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 800px;
+    height: 600px;
+    z-index: 100;
+}
+
+.map-hidden {
+    display: none;
+}
+
+#panorama {
+    width: 100%;
+    height: 100%;
+}
+
+.marker-active {
+    filter: hue-rotate(120deg);
+}
+
+footer {
+    /* Display at the bottom of the page on top of the map */
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+footer p {
+    margin: 2px!important;
+}

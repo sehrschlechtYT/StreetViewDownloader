@@ -1,0 +1,10 @@
+flask
+streetlevel
+flask-limiter
+
+# dependencies that were not installed automatically alongside streetlevel (probably a bug)
+Pillow
+requests
+pyproj
+scipy
+aiohttp
