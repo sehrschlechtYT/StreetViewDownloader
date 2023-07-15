@@ -152,16 +152,29 @@ $(document).ready(function () {
             },
             error: function (error) {
                 toast.hideToast();
-                Toastify({
-                    text: "There seems to be a problem with the server. Please try again later.",
-                    duration: 3000,
-                    gravity: "top",
-                    position: "center",
-                    style: {
-                        background: "linear-gradient(to right, #ff416c, #ff4b2b)",
-                    },
-                    stopOnFocus: true
-                }).showToast();
+                if (error.status == 429) {
+                    Toastify({
+                        text: "You have reached the download limit. Please wait a few seconds (or up to a minute) and try again.",
+                        duration: 5000,
+                        gravity: "top",
+                        position: "center",
+                        style: {
+                            background: "linear-gradient(to right, #ff416c, #ff4b2b)",
+                        },
+                        stopOnFocus: true
+                    }).showToast();
+                } else {
+                    Toastify({
+                        text: "There seems to be a problem with the server. Please try again later.",
+                        duration: 3000,
+                        gravity: "top",
+                        position: "center",
+                        style: {
+                            background: "linear-gradient(to right, #ff416c, #ff4b2b)",
+                        },
+                        stopOnFocus: true
+                    }).showToast();
+                }
             }
         });
     });

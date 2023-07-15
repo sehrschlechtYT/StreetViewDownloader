@@ -36,7 +36,7 @@ def index():
     return render_template('index.html')
 
 @app.route("/download")
-@limiter.limit("1/second;30/minute")
+@limiter.limit("2/second;30/minute")
 def download():
     latStr = request.args.get('lat')
     lonStr = request.args.get('lng')
