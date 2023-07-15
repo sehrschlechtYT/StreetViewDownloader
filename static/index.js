@@ -47,8 +47,18 @@ $(document).ready(function () {
         "Street View Coverage": streetViewTiles,
         "Panoramas": panoramaGroup,
     };
-
     var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+    L.Control.geocoder({
+        defaultMarkGeocode: false,
+    })
+        .on('markgeocode', function (e) {
+            var latlng = e.geocode.center;
+            var zoom = 17;
+            map.setView(latlng, zoom);
+        })
+        .addTo(map);
+
     var markersMap = {};
     for (var i = 0; i < panosJson.length; i++) {
         var pano = panosJson[i];
@@ -66,12 +76,12 @@ $(document).ready(function () {
             addressString += "Unknown";
         }
         var sourceString = "Unknown";
-            if (pano.source == "launch") {
-                sourceString = "Car coverage";
-            } else if (pano.source == "scout") {
-                sourceString = "Trekker or tripod coverage";
-            }
-        
+        if (pano.source == "launch") {
+            sourceString = "Car coverage";
+        } else if (pano.source == "scout") {
+            sourceString = "Trekker or tripod coverage";
+        }
+
         marker.bindPopup(`
             <b>${pano.id}</b><br>
             ${lat}, ${lng}<br>
