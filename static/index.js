@@ -7,7 +7,7 @@ $(document).ready(function () {
     console.log(panosJson);
     var viewer = new PhotoSphereViewer.Viewer({
         container: document.querySelector('#panorama'),
-        panorama: 'https://i.imgur.com/W9Ruo6o.jpeg',
+        panorama: 'https://philemon.dev/STATIC/default_panorama.jpeg',
         minFov: 15,
         plugins: [
             [PhotoSphereViewer.CompassPlugin, {

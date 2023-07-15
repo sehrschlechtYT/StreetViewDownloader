@@ -8,9 +8,20 @@ body, html {
     position: fixed;
     bottom: 0;
     right: 0;
-    width: 800px;
-    height: 600px;
+    width: 30%;
+    height: 50%;
     z-index: 100;
+}
+
+@media only screen and (max-width: 600px) {
+    #map:not(.map-hidden) {
+        width: 50%;
+        bottom: 40px;
+    }
+
+    footer {
+        display: none;
+    }
 }
 
 .map-hidden {
