@@ -15,3 +15,7 @@ Prequisites: Python 3
 2. Go into the directory using `cd StreetViewDownloader`
 3. Install the dependencies using `pip install -r requirements.txt`
 4. Execute the command `flask run` to start the server
+
+### Libraries
+- [Flask](https://flask.palletsprojects.com) for the web server 
+- [Streetlevel](https://github.com/sk-zk/streetlevel) for downloading the panoramas
