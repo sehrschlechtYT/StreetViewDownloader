@@ -91,7 +91,9 @@ $(document).ready(function () {
             handleMarkerClick(e, id, viewer);
         });
         if (i == 0) {
-            marker._icon.classList.add("marker-active");
+            if (marker._icon != null) {
+                marker._icon.classList.add("marker-active");
+            }
         }
         markersMap[pano.id] = marker;
     }
@@ -150,7 +152,9 @@ $(document).ready(function () {
                     return;
                 }
 
-                marker._icon.classList.add("marker-active");
+                if (marker._icon != null) {
+                    marker._icon.classList.add("marker-active");
+                }
 
                 // add panorama
                 var currentUrl = window.location.href;
