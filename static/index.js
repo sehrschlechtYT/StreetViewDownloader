@@ -33,7 +33,7 @@ $(document).ready(function () {
         minZoom: 6,
         attribution: '&copy; Google Maps',
     });
-    var panoramaGroup = L.layerGroup();
+    var panoramaGroup = L.markerClusterGroup();
     var map = L.map('map', {
         center: center,
         zoom: zoom,
@@ -49,7 +49,7 @@ $(document).ready(function () {
     };
 
     var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
-
+    var markersMap = {};
     for (var i = 0; i < panosJson.length; i++) {
         var pano = panosJson[i];
         var lat = pano.lat;
@@ -79,14 +79,21 @@ $(document).ready(function () {
             Coverage type: ${sourceString}<br>
             Date: ${pano.month}/${pano.year}
         `)
-        marker._icon.setAttribute("data-pano-id", pano.id);
         marker.on('click', function (e) {
-            var id = e.target._icon.getAttribute("data-pano-id");
+            // get id from marker by looking up in markersMap
+            var id;
+            for (var key in markersMap) {
+                if (markersMap[key] == e.target) {
+                    id = key;
+                    break;
+                }
+            }
             handleMarkerClick(e, id, viewer);
         });
         if (i == 0) {
             marker._icon.classList.add("marker-active");
         }
+        markersMap[pano.id] = marker;
     }
 
     map.on('click', function (e) {
