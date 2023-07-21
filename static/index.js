@@ -1,4 +1,10 @@
 $(document).ready(function () {
+    var alreadyNotified = localStorage.getItem("alreadyNotified");
+    if (!alreadyNotified) {
+        alert("Street view coverage for Germany was removed by Google on July 21! Soon, this service will be transitioned to a read-only mode for the existing data.");
+        localStorage.setItem("alreadyNotified", true);
+    }
+
     const panosJson = $.ajax({
         url: "/static/panos/panos.json",
         dataType: "json",
