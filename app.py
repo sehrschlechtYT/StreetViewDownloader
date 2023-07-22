@@ -5,6 +5,10 @@ from flask_limiter.util import get_remote_address
 from streetlevel import streetview
 import os
 import json
+from dotenv import load_dotenv
+
+if os.path.exists('.env'):
+    load_dotenv()
 
 app = Flask(__name__)
 limiter = Limiter(
@@ -12,6 +16,9 @@ limiter = Limiter(
     app = app,
     storage_uri="memory://",
 )
+
+viewonly_mode = os.environ.get('VIEWONLY_MODE', 'false').lower() == 'true'
+viewonly_message = os.environ.get('VIEWONLY_MESSAGE', 'This server is in view-only mode. Please use your own server to download panoramas (https://github.com/sehrschlechtYT/StreetViewDownloader)')
 
 workdir = os.path.dirname(os.path.abspath(__file__))
 panos_dir = os.path.join(workdir, 'panos')
@@ -33,11 +40,13 @@ with open(panos_db, 'r') as f:
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', viewonly_mode=viewonly_mode)
 
 @app.route("/download")
 @limiter.limit("2/second;30/minute")
 def download():
+    if viewonly_mode:
+        return {'error': viewonly_message}
     latStr = request.args.get('lat')
     lonStr = request.args.get('lng')
     if latStr is None or lonStr is None:

@@ -1,10 +1,4 @@
-flask
-streetlevel
-flask-limiter
-
-# dependencies that were not installed automatically alongside streetlevel (probably a bug)
-Pillow
-requests
-pyproj
-scipy
-aiohttp
+flask==2.3.2
+streetlevel==0.3.1
+flask-limiter==3.3.1
+python-dotenv

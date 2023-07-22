@@ -29,9 +29,14 @@
 
   <footer>
     <p>
+      {% if viewonly_mode %}
+      ❓ Click on a marker to view a panorama<br>
+      ⌨️ Press [TAB] to toggle the map<br>
+      {% else %}
       ❓ Click on a marker or street to view a panorama<br>
       ⌨️ Press [TAB] to toggle the map<br>
       🖱️ [Shift] + [Click] to download in background<br>
+      {% endif %}
     </p>
   </footer>
 

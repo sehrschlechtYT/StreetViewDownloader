@@ -6,25 +6,17 @@ Web app that allows you to download and view google street view panoramas
 
 ### Information
 
-**Street view coverage for Germany was removed by Google on July 21! Soon, this service will be transitioned to a read-only mode for the existing data.**
-
-### Reason for creation
-According to an [announcement by google](https://blog.google/intl/de-de/produkte/suchen-entdecken/google-street-view-aktualisierung-deutschland/), they will be updating their street view images in Germany in mid July 2023. However, the old images from 2008/2009 will be deleted. I wanted to make it possible to download some panoramas before they are gone forever.
+### About this project
+On July 21, 2021, Google removed the old street view images from 2008/2009 for Germany.
+Before that, this tool was used to download panoramas from germany to preserve them.  
 
 ## Read before using
 
-**If you are able to, please run your own instance (see *How to run*)!**
+**If you want to download panoramas, please run your own instance (see *How to run*)!**
 
 
 There is a public **demo** instance available [here](https://streetview.philemon.dev).
-
-
-Demo server limitations:
-- The demo instance is **rate limited** to 1 download per second, 10 per minute
-- The server IP might get blocked by google after a while
-- I might run out of space and **delete the panoramas**
-- There may be issues with copyright which may force me to shut down the server.
-- I might **shut down the server at any time**, so don't rely on it.
+Note: Since the german coverage is gone, the downloading feature is disabled on the demo instance.
 
 ### How to run
 
@@ -41,7 +33,17 @@ The following commands are for Windows and Linux. The program was not tested on 
 To download a panorama, just click on a blue line or dot on the map. The panorama will be downloaded and then shown in the browser automatically. If you want to download multiple panoramas in the background without having them displayed in the browser (the browser lags every time a panorama is loaded), you can hold shift while clicking on the map.  
 Press [Tab] to toggle the map.
 
+#### Read-only mode
+
+If you want to run the server in read-only mode (no panoramas can be downloaded, could be useful for freezing a public instance), you can set the environment variable `VIEWONLY_MODE` to `true`.  
+To do this, copy the `.env.example` file to `.env` and change the value of `VIEWONLY_MODE` to `true`.  
+You can also configure your own error message by setting a value for `VIEWONLY_MESSAGE`.
+
 ### Libraries
 - [Flask](https://flask.palletsprojects.com) for the web server
 - [Flask-limiter](https://flask-limiter.readthedocs.io) for rate limiting
 - [Streetlevel](https://github.com/sk-zk/streetlevel) for downloading the panoramas
+- [python-dotenv](https://pypi.org/project/python-dotenv/) for loading the environment variables from the .env file
+
+### Legal notice
+This project is not affiliated with Google LLC. It is a private project and is not intended for commercial use. I do not take any responsibility for the use of this project. I do not own any of the imagery that can be downloaded using this project. All imagery belongs to Google LLC.
