@@ -8,15 +8,7 @@ Web app that allows you to download and view google street view panoramas
 
 ### About this project
 On July 21, 2021, Google removed the old street view images from 2008/2009 for Germany.
-Before that, this tool was used to download panoramas from germany to preserve them.  
-
-## Read before using
-
-**If you want to download panoramas, please run your own instance (see *How to run*)!**
-
-
-There is a public **demo** instance available [here](https://streetview.philemon.dev).
-Note: Since the german coverage is gone, the downloading feature is disabled on the demo instance.
+Before that, this tool was used to download panoramas from germany to preserve them. 
 
 ### How to run
 
